@@ -28,7 +28,7 @@ const Layout = ({ children }) => (
         >
           <main>{children(data)}</main>
           <footer>
-            © {new Date().getFullYear()}, Built with
+            © {new Date().getFullYear()}, Built with Vishal
             {` `}
             <a href="https://www.gatsbyjs.org">Gatsby</a>
           </footer>
