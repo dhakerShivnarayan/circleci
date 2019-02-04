@@ -30,8 +30,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentstack',
       options:{
-        'api_key':process.env.contentkey,
-        'access_token':'blt65f4900be4dc153c',
+        'api_key':process.env.contentstackApiKey,
+        'access_token':process.env.contentstackAccessToken,
         'environment':'staging'
       },
     },
