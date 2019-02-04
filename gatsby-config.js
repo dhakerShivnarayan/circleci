@@ -32,7 +32,7 @@ module.exports = {
       options:{
         'api_key':'blt34bb47c49b15c072',
         'access_token':'blt65f4900be4dc153c',
-        'environment':'development'
+        'environment':'staging'
       },
     },
     'gatsby-plugin-offline',
