@@ -36,7 +36,10 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-        
+     
+      # build site
+      - run: npm build   
+     
       # run tests!
       - run: npm run test
 
