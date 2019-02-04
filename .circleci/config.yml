@@ -44,7 +44,7 @@ jobs:
 
       - run: 
           name: "Setup custom environment variables"
-          command: echo 'export contentkey=$contentstackKey
+          command: echo 'export contentkey=$contentstackKey'
       # Run a step to print what branch our code base is on.
       - run: # check our key.
           name: "key?"
