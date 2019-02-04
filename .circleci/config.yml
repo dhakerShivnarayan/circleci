@@ -39,14 +39,14 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       
       # build site
-      - run: npm build
+      - run: npm run build
   
       # run tests!
       - run: npm run test
      
       # publish to NPM
       - run: ls -la
-      - run: cd  ~/repo/public
-      - run: echo "//registry.npmjs.org/:_authToken=$npmToken" >> ~/.npmrc
-      - run: npm publish
+     # - run: cd  ~/repo/public
+     # - run: echo "//registry.npmjs.org/:_authToken=$npmToken" >> ~/.npmrc
+     # - run: npm publish
 
