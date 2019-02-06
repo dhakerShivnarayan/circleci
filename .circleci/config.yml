@@ -45,7 +45,7 @@ jobs:
       - run: npm run test
      
       # publish to NPM
-      - run: ls -la
-      - run: cd public && echo "//registry.npmjs.org/:_authToken=$npmToken" >> ~/.npmrc 
-      - run: npm publish
+      - run: ls -la ~/repo/public
+      #- run: cd public && echo "//registry.npmjs.org/:_authToken=$npmToken" >> ~/.npmrc 
+      #- run: npm publish
 
