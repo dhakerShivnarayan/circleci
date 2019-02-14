@@ -80,14 +80,16 @@ jobs:
         - run:
             name: Deploy to S3
             command: |
-                if [ "${CIRCLE_BRANCH}" == "development" ]; then
+                if [ "${CIRCLE_BRANCH}" == "development" ] 
+                then
                     echo "Start S3 Sync"
                     aws s3 sync dist s3://gatsby-poc.cloudthis.com --cache-control "max-age=3153600" --exclude ".git/*" --exclude "*.sh" --exclude "node_modules/*" --region us-west-2
                     echo "sync done "
-              
-                elif [ "${CIRCLE_BRANCH}" == "master" ]; then
-                # bash s3deploy-master.sh
                 fi
+                # elif [ "${CIRCLE_BRANCH}" == "master" ] 
+                # then
+                # # bash s3deploy-master.sh
+                # fi
 
         # Invalidate Cloudfront
         - run:
