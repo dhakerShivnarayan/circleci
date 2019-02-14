@@ -46,8 +46,8 @@ jobs:
      
       # Cache the dist folder for the deploy job
       - save_cache:
-        key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
-        paths:
+          key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
             - public
 
 # The deploy job
