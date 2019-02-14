@@ -30,13 +30,14 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentstack',
       options:{
-        'api_key':process.env.contentstackApiKey,
-        'access_token': process.env.contentstackAccessToken,
+        'api_key': "bltb11a98de3f02eed6",
+        'access_token': "blt9707675b1ba70920",
         'environment':'development'
       },
     },
     'gatsby-plugin-offline',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     //  To learn more, visit: https://gatsby.app/offline
+    //`gatsby-plugin-meta-redirect` // make sure to put last in the array
   ],
 }
