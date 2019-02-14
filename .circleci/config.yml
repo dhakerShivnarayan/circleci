@@ -113,5 +113,8 @@ build_and_deploy:
             filters:
                 branches:
                     only:
+                        - master
+                        - staging
                         - development
+
 
