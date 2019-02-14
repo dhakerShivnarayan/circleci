@@ -45,8 +45,8 @@ jobs:
           paths:
             - public
 
-# The deploy job
-deploy:
+  # The deploy job
+  deploy:
     working_directory: ~/repo
     docker:
       - image: circleci/node:7.10
@@ -63,7 +63,7 @@ deploy:
         - run:
             name: Install aws cli
             command:
-               sudo apt-get -y -qq install awscli
+              sudo apt-get -y -qq install awscli
         # Set the signature version for the S3 auth
         - run:
             name: Setting Signature Version 4 for S3 Request Authentication
