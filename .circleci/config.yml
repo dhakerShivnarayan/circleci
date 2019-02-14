@@ -44,8 +44,57 @@ jobs:
       # run tests!
       - run: npm run test
      
-      # publish to NPM
-      - run: ls -la ~/repo/public
-      #- run: cd public && echo "//registry.npmjs.org/:_authToken=$npmToken" >> ~/.npmrc 
-      #- run: npm publish
+      # Cache the dist folder for the deploy job
+      - save_cache:
+        key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+        paths:
+            - public
 
+# The deploy job
+deploy:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:7.10
+    steps:
+        # Log the current branch
+        - run:
+            name: Show current branch
+            command: echo ${CIRCLE_BRANCH}
+        # Restore cache from the build job which contains the
+        # dist folder that needs to be deployed
+        - restore_cache:
+            key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+        # Install AWS cli
+        - run:
+            name: Install aws cli
+            command:
+               sudo apt-get -y -qq install awscli
+        # Set the signature version for the S3 auth
+        - run:
+            name: Setting Signature Version 4 for S3 Request Authentication
+            command: aws configure set default.s3.signature_version s3v4
+
+# ACTIVATE CLOUD FRONT CLI
+- run:
+    name: activate cloud front
+    command: aws configure set preview.cloudfront true
+            aws configure set preview.create-invalidation true
+            
+
+# Deploy to the S3 bucket corresponding to the current branch
+- run:
+    name: Deploy to S3
+    command: |
+        if [ "${CIRCLE_BRANCH}" == "development" ]; then
+            echo "Start S3 Sync"
+            aws s3 sync dist s3://gatsby-poc.cloudthis.com --cache-control "max-age=3153600" --exclude ".git/*" --exclude "*.sh" --exclude "node_modules/*" --region us-west-2
+            echo "sync done "
+       
+        elif [ "${CIRCLE_BRANCH}" == "master" ]; then
+     #       bash s3deploy-master.sh
+        fi
+
+# Invalidate Cloudfront
+  - run:
+      name: Invalidate Cloudfront
+      command: aws cloudfront create-invalidation --distribution-id E3U712X5MDEYO4 --paths *
