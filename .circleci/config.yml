@@ -77,8 +77,8 @@ jobs:
             
 	# AWS bucket name
         - run:
-             name: aws bucket name
-             command: aws s3api get-bucket-location --bucket gatsby-poc.cloudthis.com
+            name: aws bucket name
+            command: aws s3api get-bucket-location --bucket gatsby-poc.cloudthis.com
 
         # Deploy to the S3 bucket corresponding to the current branch
         - run:
