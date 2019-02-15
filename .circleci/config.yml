@@ -104,7 +104,6 @@ jobs:
         - run:
             name: Invalidate Cloudfront
             command: aws cloudfront create-invalidation --distribution-id E3U712X5MDEYO4 --paths /gatsby-poc.cloudthis.com/*
-
 workflows:
   version: 2
   # The build and deploy workflow
