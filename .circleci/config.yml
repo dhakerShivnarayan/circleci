@@ -66,7 +66,7 @@ jobs:
               #sudo apt-get -y -qq install awscli
               sudo apt-get install python-dev python-pip
               sudo pip install awscli
-              
+
         # Set the signature version for the S3 auth
         - run:
             name: Setting Signature Version 4 for S3 Request Authentication
@@ -102,7 +102,7 @@ jobs:
         # Invalidate Cloudfront
         - run:
             name: Invalidate Cloudfront
-            command: aws cloudfront create-invalidation --distribution-id E3U712X5MDEYO4 --paths *
+            command: aws cloudfront create-invalidation --distribution-id E3U712X5MDEYO4 --paths /*
 
 workflows:
   version: 2
