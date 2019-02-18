@@ -63,8 +63,8 @@ jobs:
 
       # Set the signature version for the S3 auth
       - run:
-        name: Setting Signature Version 4 for S3 Request Authentication
-        command: aws configure set default.s3.signature_version s3v4
+          name: Setting Signature Version 4 for S3 Request Authentication
+          command: aws configure set default.s3.signature_version s3v4
 
       # ACTIVATE CLOUD FRONT CLI
       - run:
