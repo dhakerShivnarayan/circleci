@@ -39,20 +39,10 @@ jobs:
       # run tests!
       - run: npm run test
      
-      # Cache the dist folder for the deploy job
-      - save_cache:
-          key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
-          paths:
-            - public
-      
       # Log the current branch
       - run:
           name: Show current branch
           command: echo ${CIRCLE_BRANCH}
-      # Restore cache from the build job which contains the
-      # dist folder that needs to be deployed
-      - restore_cache:
-          key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
       # Install AWS cli
       - run:
           name: Install aws cli
