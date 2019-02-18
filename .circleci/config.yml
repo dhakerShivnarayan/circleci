@@ -121,7 +121,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: npm install
+      - run: npm installss
 
       - save_cache:
           paths:
@@ -138,7 +138,7 @@ jobs:
       - save_cache:
           key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
           paths:
-            - cpublic
+            - public
 
   # The deploy job
   deploy:
