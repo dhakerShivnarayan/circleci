@@ -11,7 +11,7 @@ const IndexPage = (homeData) => (
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <h1>Hi people</h1>
     <p>{homeData.data.contentstackHome.body}</p>
-    <p>Now go build something.</p>
+    <p>Now go build something people.</p>
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
