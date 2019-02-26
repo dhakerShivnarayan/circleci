@@ -25,7 +25,7 @@
 //     const fileExists = await exists(FILE_PATH);
 //     if (!fileExists) {
 //       try {
-//         await ensureDir(path.dirname(FILE_PATH));
+//          await ensureDir(path.dirname(FILE_PATH));
 //       } catch (err) {
 //         // ignore if the directory already exists;
 //       }
