@@ -31,10 +31,6 @@ jobs:
           - v1-dependencies-
 
       - run: npm install
-      
-      - run:
-          name: remove cache
-          command: rm -r ./.cache/*
 
       - save_cache:
           paths:
